@@ -1,6 +1,8 @@
 kagglehub
 pandas
 numpy
-joblib
+matplotlib
+seaborn
+xgboost
 scikit-learn
 ipykernel

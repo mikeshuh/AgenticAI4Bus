@@ -1,0 +1,8 @@
+,annual_spending,annual_spending,annual_spending,purchase_frequency,age,avg_order_value
+,count,mean,std,mean,mean,mean
+cluster,,,,,,
+0,51,414.56,313.14,5.08,27.14,82.49
+1,193,1199.8,100.68,12.05,41.41,102.01
+2,200,1821.13,145.57,35.06,31.95,52.35
+3,200,3991.85,186.2,15.16,49.06,267.34
+4,156,301.7,83.39,4.01,24.59,80.51

@@ -3,6 +3,8 @@
 ## Tools Used
 - **Claude Code** - AI-powered coding assistant by Anthropic
 - **Google Gemini API** - Using the `google-genai` Python SDK (newer unified SDK)
+- **Visual Studio Code** - Lightweight code editor with vast library of extensions
+  - **Jupyter VS Code Extension Pack** - Jupyter notebook support in VS Code
 
 ---
 

@@ -6,3 +6,5 @@ seaborn
 xgboost
 scikit-learn
 ipykernel
+google-genai
+python-dotenv

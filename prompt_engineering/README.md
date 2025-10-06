@@ -10,7 +10,7 @@
 
 ```
 I have a coding assignment about prompt engineering that has three task. Here is the raw text of the assignment description:
-```
+===
 Practice Prompt engineering in Python to complete the following tasks:
 1. Prompt Chaining for a Customer Support AI
 Goal: Build a simple prompt chain to simulate a customer service flow
@@ -23,7 +23,7 @@ Submission:
 A document including:
 1. The tools and prompts you used for each coding exercise
 2. The GitHub links to your Python code as 3 separate Colab files with the successful output.
-```
+===
 
 Here is what you need to accomplish:
 - Finish each task as described in the assignment description. Start by asking clarifying questions, if any exist. Then, proceed with creating an execution plan, which I will approve or reject.
@@ -105,7 +105,7 @@ Create a complete response that:
 ReACT (Reasoning + Acting) prompting combines reasoning traces with task-specific actions. The LLM generates thoughts about the problem, then takes actions (like generating code), creating an interpretable chain of reasoning and execution.
 
 ### Implementation Approach
-Generate Python code for data analysis using explicit Thought ’ Action ’ Observation cycles.
+Generate Python code for data analysis using explicit Thought ï¿½ Action ï¿½ Observation cycles.
 
 ### Prompts Used
 

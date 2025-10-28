@@ -107,14 +107,14 @@ Using `gemini-2.0-flash-lite` model on 8 test queries:
 
 | Metric | Agentic Bot | Baseline Bot | Difference |
 |--------|-------------|--------------|------------|
-| **Total Tokens** | 3,702 | 4,440 | -738 (16.6% reduction) |
-| **Total Cost Units** | 10.07 | 8.88 | -1.19 (-13.4%) |
-| **Avg Cost/Turn** | 1.26 | 1.11 | +0.15 |
+| **Total Tokens** | 3,827 | 3,999 | -172 (4.3% reduction) |
+| **Total Cost Units** | 10.43 | 8.0 | +2.43 (-30.4%) |
+| **Avg Cost/Turn** | 1.30 | 1.0 | +0.30 |
 | **Cached Queries** | 3 (0 cost) | 0 | +3 |
 
 ### Key Insights
 
-✅ **Token Efficiency**: 16.6% reduction (738 fewer tokens)
+✅ **Token Efficiency**: 4.3% reduction (172 fewer tokens)
 ✅ **Caching Works**: 3 simple queries served instantly (0 cost)
 ✅ **Intelligent Allocation**: Successfully routes to appropriate tiers
 ⚠️ **Cost Trade-off**: Baseline cheaper for this specific query mix (by design)
@@ -133,9 +133,9 @@ Load Balancer → API Servers (FastAPI) → Redis Cache + PostgreSQL
 
 ### Cost Estimates
 
-- **Phase 1 (MVP)**: 0-1K queries/day → ~$50-100/month
-- **Phase 2 (Growth)**: 1K-10K queries/day → ~$500-1000/month
-- **Phase 3 (Scale)**: 10K-100K queries/day → ~$3000-5000/month
+- **Phase 1 (MVP)**: 0-200 queries/day (free tier limit) → ~$0-50/month
+- **Phase 2 (Growth)**: 1K-10K queries/day → ~$200-500/month (requires paid tier)
+- **Phase 3 (Scale)**: 10K-100K queries/day → ~$2000-4000/month (enterprise limits)
 
 ### Monitoring
 
@@ -187,8 +187,13 @@ Load Balancer → API Servers (FastAPI) → Redis Cache + PostgreSQL
 
 ### API Rate Limits
 
-If you hit rate limits (10 requests/minute for free tier):
-- The evaluation cell includes automatic delays (6 seconds between calls)
+The `gemini-2.0-flash-lite` free tier limits are:
+- **30 requests per minute (RPM)**
+- **1,000,000 tokens per minute (TPM)**
+- **200 requests per day (RPD)**
+
+If you hit rate limits:
+- The evaluation cell includes automatic delays (2 seconds between calls)
 - For faster testing, reduce the `comprehensive_test_queries` list
 - Consider upgrading to paid tier for higher limits
 
@@ -205,6 +210,20 @@ ValueError: GEMINI_API_KEY not found in .env file
 ModuleNotFoundError: No module named 'google.genai'
 ```
 **Solution**: Install required packages: `pip install google-genai python-dotenv`
+
+## API Limits Reference
+
+### gemini-2.0-flash-lite (Free Tier)
+
+| Metric | Limit |
+|--------|-------|
+| **RPM** (Requests Per Minute) | 30 |
+| **TPM** (Tokens Per Minute) | 1,000,000 |
+| **RPD** (Requests Per Day) | 200 |
+
+For production deployments exceeding these limits, upgrade to paid tiers with higher quotas.
+
+**Reference**: [Gemini API Rate Limits Documentation](https://ai.google.dev/gemini-api/docs/rate-limits)
 
 ---
 

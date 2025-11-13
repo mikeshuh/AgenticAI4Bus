@@ -8,7 +8,7 @@ An intelligent agent that optimizes inventory replenishment decisions using LLM-
 
 ### 1. Install Dependencies
 ```bash
-pip install pandas numpy matplotlib seaborn scipy python-dotenv google-generativeai
+pip install requirements.txt
 ```
 
 ### 2. Set Up API Key
